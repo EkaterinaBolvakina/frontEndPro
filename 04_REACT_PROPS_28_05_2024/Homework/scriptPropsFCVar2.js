@@ -37,7 +37,7 @@ const Champion = ({ number, name, year, country }) => {
 
 const ChampionList = ({ champions }) => {
     return (
-        <table>
+        <table style={{textAlign: 'center'}}>
             <TableHead columns={['#', 'Name', 'Year', 'Country']} />
             <tbody>
                 {champions.map((champion, index) => (
