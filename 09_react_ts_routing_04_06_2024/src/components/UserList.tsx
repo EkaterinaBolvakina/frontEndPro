@@ -1,9 +1,38 @@
 import { Component } from 'react'
 import User from './User';
 
+interface IUserListJSON {
+    id: number,
+    name: string,
+    username: string,
+    email: string,
+    address: {
+        street: string,
+        suite: string,
+        city: string,
+        zipcode: string,
+        geo: {
+            lat: string,
+            lng: string
+        }
+    },
+    phone: string,
+    website: string,
+    company: {
+        name: string,
+        catchPhrase: string,
+        bs: string
+    }
+}
+
+type UserListState = {
+    users: IUserListJSON[];
+    isLoading: boolean;
+  };
+
 // rce = React class export
 export class UserList extends Component {
-    constructor(props) {
+    constructor(props: UserListState) {
         super(props);
         this.state = {
             users: [],
@@ -21,7 +50,7 @@ export class UserList extends Component {
     }
 
     render() {
-        const { users, isLoading } = this.state;
+        const { users, isLoading } = this.state as UserListState;
         /*
                 if (isLoading) {
                     return <div> Loading... </div>;
@@ -46,20 +75,10 @@ export class UserList extends Component {
             </div>
         ) : (
             <div>
-                {users.map((user) => (
+                {users.map((user: IUserListJSON) => (
                     <User
-                    /* als zweite Variante
                        key={user.id}
-                       person={user} hier werden alle elemente von user übernommen
-                    */
-                        key={user.id}
-                        userName={user.name}
-                        companyName={user.company.name}
-                        website={user.website}
-                        addressStreet={user.address.street}
-                        addressSuite={user.address.suite}
-                        addressCity={user.address.city}
-                        email={user.email}
+                       person={user} 
                     />
                 ))}
             </div>

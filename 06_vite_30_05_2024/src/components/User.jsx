@@ -23,6 +23,17 @@ export class User extends Component {
         }
     }
     render() {
+       /* als zweite Variante:
+       const {name, email, address: {city}, company: {name: companyName}} = this.props.person; Destrukturierung, constructor wird hier nicht gebraucht
+        return (
+            <div>
+                 <div>{name}</div>
+                 <div>{email}</div>
+                 <div>{city}</div>
+                 <div>{companyName}</div>
+            </div>
+       )
+       */
         console.log('User component props:', this.props); // Debug log
         return (
             <div className="card" style={{ width: '580px', margin: '8px auto', backgroundColor: 'rgba(var(--bs-tertiary-bg-rgb)' }}>
