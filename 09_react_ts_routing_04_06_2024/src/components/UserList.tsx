@@ -25,14 +25,14 @@ interface IUserListJSON {
     }
 }
 
-type UserListState = {
-    users: IUserListJSON[];
-    isLoading: boolean;
-  };
+interface IUserListState {
+    users: IUserListJSON[],
+    isLoading: boolean
+  }
 
 // rce = React class export
-export class UserList extends Component {
-    constructor(props: UserListState) {
+export class UserList extends Component<IUserListJSON, IUserListState > {
+    constructor(props: IUserListJSON) {
         super(props);
         this.state = {
             users: [],
@@ -50,7 +50,7 @@ export class UserList extends Component {
     }
 
     render() {
-        const { users, isLoading } = this.state as UserListState;
+        const { users, isLoading } = this.state as IUserListState;
         /*
                 if (isLoading) {
                     return <div> Loading... </div>;
