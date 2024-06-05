@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import User from './User';
 
-interface IUserListJSON {
+export interface IUserListJSON {
     id: number,
     name: string,
     username: string,

@@ -1,6 +1,7 @@
 import { Component } from 'react'
+import {IUserListJSON}  from './UserList';
 
-export class User extends Component {
+export class User extends Component< {person: IUserListJSON} > {
 
     render() {
 
