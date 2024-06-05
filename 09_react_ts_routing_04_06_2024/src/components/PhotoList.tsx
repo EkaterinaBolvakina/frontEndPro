@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import Photo from './Photo';
 
-export interface IPhotoJson {
+interface IPhotoJson {
     albumId: number,
     id: number,
     title: string,
