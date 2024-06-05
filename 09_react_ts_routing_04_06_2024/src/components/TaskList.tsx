@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import Task from './Task'
 
 interface ITaskJSON {
@@ -8,7 +8,7 @@ interface ITaskJSON {
     completed: boolean
 }
 
-const TaskList = () => {
+const TaskList: FC = () => {
     const [tasks, setTasks] = useState<{id: number, title: string} [] >([]);
 
     const [newTask, setNewTask] = useState<{id: number, title: string} >({ id: Math.random() * 1000, title: '' });
