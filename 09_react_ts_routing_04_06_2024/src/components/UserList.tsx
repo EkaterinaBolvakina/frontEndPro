@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import User from './User';
 
-export interface IUserListJSON {
+export interface IUserJson {
     id: number,
     name: string,
     username: string,
@@ -26,13 +26,14 @@ export interface IUserListJSON {
 }
 
 interface IUserListState {
-    users: IUserListJSON[],
+    users: IUserJson[],
     isLoading: boolean
   }
 
 // rce = React class export
-export class UserList extends Component<IUserListJSON, IUserListState > {
-    constructor(props: IUserListJSON) {
+// da UserList keine props empfängt => empty-object mit Record<string, never> (props-Tipisierung) definieren, dann kommt (state-Tipisierung) :
+export class UserList extends Component<Record<string, never>, IUserListState > {
+    constructor(props: Record<string, never>) {
         super(props);
         this.state = {
             users: [],
@@ -50,7 +51,7 @@ export class UserList extends Component<IUserListJSON, IUserListState > {
     }
 
     render() {
-        const { users, isLoading } = this.state as IUserListState;
+        const { users, isLoading } = this.state;
         /*
                 if (isLoading) {
                     return <div> Loading... </div>;
@@ -75,7 +76,7 @@ export class UserList extends Component<IUserListJSON, IUserListState > {
             </div>
         ) : (
             <div>
-                {users.map((user: IUserListJSON) => (
+                {users.map((user) => (
                     <User
                        key={user.id}
                        person={user} 

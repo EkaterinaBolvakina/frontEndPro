@@ -7,7 +7,7 @@ interface ITaskProps {
 
 const Task = ({ title, toDelete }: ITaskProps) => {
 
-    const [isEdit, setIsEdit] = useState<boolean>(false); // [isEdit, setIsEdit] Array(2)
+    const [isEdit, setIsEdit] = useState<boolean | undefined>(false); // [isEdit, setIsEdit] Array(2)
 
     const [updatedTask, setUpdatedTask] = useState<string>(title);
 
