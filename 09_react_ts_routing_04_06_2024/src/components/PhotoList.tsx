@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import Photo from './Photo';
 
-interface IPhotoJson {
+export interface IPhotoJson {
     albumId: number,
     id: number,
     title: string,
@@ -10,26 +10,28 @@ interface IPhotoJson {
 }
 
 const PhotoList: FC = () => {
-    const [photos, setPhotos] = useState<{ id: number, title: string, thumbnailUrl: string }[]>([]);
-    const [isLoading] = useState<boolean>(false);
+    const [photos, setPhotos] = useState<IPhotoJson[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
 
         const fetchPhotos = async () => {
             try {
                 const response = await fetch('https://jsonplaceholder.typicode.com/photos');
-                const data = await response.json();
-                setPhotos(data.slice(0, 10).map((e: IPhotoJson) => ({ id: e.id, title: e.title, thumbnailUrl: e.thumbnailUrl })))
+                const data: IPhotoJson[] = await response.json();
+                setPhotos(data.slice(0, 10))
+                setIsLoading(false); // Laden der Daten ist beendet
 
             } catch (error) {
                 console.log(error);
+                setIsLoading(false); // Laden der Daten ist beendet
             }
         }
 
         fetchPhotos();
-        return () => console.log('Component is unmounted')
-    }, []);  // Empty dependency array to ensure it runs once on mount
+    }, []);  // Пустой массив зависимостей, чтобы обеспечить однократный запуск при монтировании / das leere Abhängigkeitsarray, um einen einzigen Lauf beim Einhängen zu gewährleisten
 
+    // return isLoading ? ( <></> ) : ( <></> );
     return isLoading ? (
         <div className="text-center">
             <div className="spinner-border" role="status">
