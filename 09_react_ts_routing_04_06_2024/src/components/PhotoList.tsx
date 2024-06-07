@@ -13,6 +13,19 @@ const PhotoList: FC = () => {
     const [photos, setPhotos] = useState<IPhotoJson[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
+    const placeholderDivImgStyle = {
+        width: '150px',
+        height: '150px',
+        margin: '0 auto',
+        backgroundColor: '#e0e0e0'
+    };
+    const placeholderTitleStyle = {
+        width: '450px',
+        height: '1.5em',
+        backgroundColor: '#e0e0e0',
+        margin: '20px 1px 8px 1px'
+    }
+
     useEffect(() => {
 
         const fetchPhotos = async () => {
@@ -33,11 +46,17 @@ const PhotoList: FC = () => {
 
     // return isLoading ? ( <></> ) : ( <></> );
     return isLoading ? (
-        <div className="text-center">
-            <div className="spinner-border" role="status">
-                <span className="visually-hidden">Loading...</span>
+        Array.from(new Array(10)).map((_, index) => (
+            <div key={index} className="card" style={{ width: '580px', margin: '8px auto', backgroundColor: 'rgba(var(--bs-tertiary-bg-rgb)' }}>
+                <div className="card-body d-flex flex-column align-items-center text-center">
+                    <div style={placeholderDivImgStyle}>
+                        <img style={{ width: '100%', height: '100%' }} />
+                    </div>
+                    <div style={placeholderTitleStyle} />
+                </div>
             </div>
-        </div>
+        ))
+
     ) : (
         <div className='d-flex flex-column align-items-center text-center' >
             {photos.map((photo) => (
