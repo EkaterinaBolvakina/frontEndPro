@@ -1,6 +1,7 @@
 import React from 'react'
-import { navItems } from '../utils/constants'
+import { navItems } from '../../utils/constants'
 import NavItem from './NavItem'
+
 
 const Navigation = () => {
   return (

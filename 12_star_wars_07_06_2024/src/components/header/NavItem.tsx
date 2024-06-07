@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import  { FC } from 'react'
 
 const NavItem: FC<{title: string}> = ({title}) => {
   return (
