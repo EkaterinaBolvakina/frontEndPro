@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poller One', serif;
-    background-image: url('./Images/sky.jpg');
+    background-image: url('./images/sky.jpg');
     color: #eedb00;
     /* Фиксация фона */
     background-attachment: fixed;
