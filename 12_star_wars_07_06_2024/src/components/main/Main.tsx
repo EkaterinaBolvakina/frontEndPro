@@ -3,6 +3,7 @@ import Hero from './Hero'
 import DreamTeam from './DreamTeam'
 import FarGalaxy from './FarGalaxy'
 import { PageContext } from '../../App'
+import { navItems } from '../../utils/constants'
 
 
 //const Main: FC<{ page:string }> = () => {
@@ -12,7 +13,7 @@ const Main: FC = () => {
 
   const renderContent = () => {
     switch (context.page) {
-      case 'Home':
+      case navItems[0]:
         return (
           <>
             <section className="left">
@@ -25,11 +26,11 @@ const Main: FC = () => {
             <FarGalaxy />
           </>
         )
-      case 'About me':
+      case navItems[1]:
         return <div>About me - Page Content</div>;
-      case 'Star Wars':
+      case navItems[2]:
         return <div>Star Wars -  Page Content</div>;
-      case 'Contact':
+      case navItems[3]:
         return <div>Contact -  Page Content</div>;
       default:
         return (

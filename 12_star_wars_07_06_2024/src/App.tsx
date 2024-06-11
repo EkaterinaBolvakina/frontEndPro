@@ -18,7 +18,7 @@ export const PageContext = createContext<{
 } | null>(null)
 
 function App() {
-  const [page, setPage] = useState(navItems[0]); //Zustandsverwaltung: Der Zustand der aktuellen Seite (page) wird in der App-Komponente verwaltet und kann durch setPage geändert werden.
+  const [page, setPage] = useState(navItems[0]); //Zustandsverwaltung: Der Zustand der aktuellen Seite (page) wird in der App-Komponente verwaltet und kann durch setPage geändert werden   .
 
   console.log(page)
   return (
