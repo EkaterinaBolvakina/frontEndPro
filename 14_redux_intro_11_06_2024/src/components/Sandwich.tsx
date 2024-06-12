@@ -16,11 +16,12 @@ const Sandwich = () => {
 
     return (
         <div>
+            <div><h3>Choose your sandwich:</h3></div>
             <div>Sandwich: {ingredients.join(' ')}</div>
-            <button onClick={() => { handleAddIngredient('Bread') }}> Bread </button>
-            <button onClick={() => { handleAddIngredient('Cheese') }}> Cheese</button>
-            <button onClick={() => { handleAddIngredient('Sausage') }}> Sausage </button>
-            <button onClick={handleResetIngredients}> Reset</button>
+            <button onClick={() => { handleAddIngredient('Bread') }}> Add bread </button>
+            <button onClick={() => { handleAddIngredient('Cheese') }}> Add cheese</button>
+            <button onClick={() => { handleAddIngredient('Sausage') }}> Add sausage </button>
+            <button onClick={handleResetIngredients}> Reset all ingredients</button>
         </div>
     )
 }

@@ -1,14 +1,17 @@
 import { combineReducers, legacy_createStore } from "redux";
 import counterReducer from "./counterReducer";
 import sandwichReducer from "./sandwichReducer";
+import libraryReducer from "./libraryReducer";
 
-const store = legacy_createStore(combineReducers({
-    counter: counterReducer,
-    sandwich: sandwichReducer
+const rootReducer = combineReducers({
+    counter: counterReducer, // counter ist key hier
+    sandwich: sandwichReducer,
+    library: libraryReducer
 
-}))
+})
+const store = legacy_createStore(rootReducer)
 
 
-export default store;
+export default store;   
 
 export type RootState = ReturnType<typeof store.getState>

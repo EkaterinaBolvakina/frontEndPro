@@ -1,4 +1,4 @@
-import Action from "./counterActions";
+import Action from "./counterAction";
 
 const initialState = {
     value: 0
