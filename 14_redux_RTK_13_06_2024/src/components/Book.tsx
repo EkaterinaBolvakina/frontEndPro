@@ -1,7 +1,6 @@
 import { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Book as BookType } from '../redux_rtk/librarySlice'
-import { librarySlice } from '../redux_rtk/librarySlice';
+import { Book as BookType, deleteBook, editBook } from '../redux_rtk/librarySlice'
 
 interface BookProps {
     book: BookType;
@@ -16,12 +15,12 @@ const Book: FC<BookProps> = ({ book }) => {
 
     const handleSaveBook = () => {
         const updatedBook = { ...book, title, author, year };
-        dispatch(librarySlice.actions.editBook(updatedBook))
+        dispatch(editBook(updatedBook))
         setIsEdit(false);
     }
 
     const handleDeleteBook = () => {
-        dispatch(librarySlice.actions.deleteBook(book.isbn))
+        dispatch(deleteBook(book.isbn))
     };
 
     const handleEditBook = () => {

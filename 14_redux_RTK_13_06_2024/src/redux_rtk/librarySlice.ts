@@ -41,3 +41,6 @@ export const librarySlice = createSlice({
         }
     }
 })
+
+export const {addBook, editBook, deleteBook} = librarySlice.actions;
+export default librarySlice.reducer;

@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Book as BookType } from '../redux_rtk/librarySlice'
+import { Book as BookType, addBook } from '../redux_rtk/librarySlice'
 import Book from './Book';
-import { librarySlice } from '../redux_rtk/librarySlice';
 import { RootState } from '../redux_rtk/storeRTK';
 
 const Library = () => {
@@ -19,7 +18,7 @@ const Library = () => {
             author,
             year: Number(year)
         };
-        dispatch(librarySlice.actions.addBook(newBook))
+        dispatch(addBook(newBook))
         setTitle(''); // Reset input fields after adding a book
         setAuthor('');
         setYear('');

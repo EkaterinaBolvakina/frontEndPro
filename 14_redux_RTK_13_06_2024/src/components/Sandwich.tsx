@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { sandwichSlice } from '../redux_rtk/sandwichSlice';
 import { RootState } from '../redux_rtk/storeRTK';
+import { addIngredient, resetIngredients } from '../redux_rtk/sandwichSlice';
 
 const Sandwich = () => {
     const ingredients = useSelector((state: RootState) => state.sandwich.ingredients)
     const dispatch = useDispatch();
 
     const handleAddIngredient = (ingredient: string) => {
-      dispatch(sandwichSlice.actions.addIngredient(ingredient))
+      dispatch(addIngredient(ingredient))
     }
 
     const handleResetIngredients = () => {
-     dispatch(sandwichSlice.actions.resetIngredients())
+     dispatch(resetIngredients())
     }
 
     return (
