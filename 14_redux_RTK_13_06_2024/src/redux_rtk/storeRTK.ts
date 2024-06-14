@@ -1,14 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./counterSlice";
-import { sandwichSlice } from "./sandwichSlice";
-import { librarySlice } from "./librarySlice";
+import sandwichReducer from "./sandwichSlice";
+import libraryReducer from "./librarySlice";
 
 export const storeRTK = configureStore({
     reducer: {
         counter: counterReducer,
-        sandwich: sandwichSlice.reducer,
-        library: librarySlice.reducer
+        sandwich: sandwichReducer,
+        library: libraryReducer
     }
 });
 export type RootState = ReturnType<typeof storeRTK.getState>
 
+ 

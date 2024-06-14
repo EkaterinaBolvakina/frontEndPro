@@ -37,7 +37,9 @@ export const librarySlice = createSlice({
             );
         },
         deleteBook(state, action: PayloadAction<string | undefined>) {
-            state.books = state.books.filter(book => book.isbn !== action.payload);
+           // state.books = state.books.filter(book => book.isbn !== action.payload); // hier wird kopie erstellt
+            const index = state.books.findIndex((e) => e.isbn === action.payload) // löscht aus dem original
+            state.books.splice(index, 1)
         }
     }
 })
