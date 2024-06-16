@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Book as BookType, addBook } from '../redux_rtk/librarySlice'
+import { Book as BookType, addBook } from '../../redux_rtk/librarySlice'
 import Book from './Book';
-import { RootState } from '../redux_rtk/storeRTK';
+import { RootState } from '../../redux_rtk/storeRTK';
 
 const Library = () => {
     const books = useSelector((state: RootState) => state.library.books)
@@ -25,7 +25,7 @@ const Library = () => {
     }
 
     return (
-        <div>
+        <div className='libraryGeneral'>
             <h2>Add book</h2>
             <label> Title: <input
                 type="text" placeholder='Titel...' value={title} onChange={(e) => setTitle(e.target.value)} />

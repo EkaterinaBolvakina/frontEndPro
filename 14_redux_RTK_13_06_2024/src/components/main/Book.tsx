@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Book as BookType, deleteBook, editBook } from '../redux_rtk/librarySlice'
+import { Book as BookType, deleteBook, editBook } from '../../redux_rtk/librarySlice'
 
 interface BookProps {
     book: BookType;

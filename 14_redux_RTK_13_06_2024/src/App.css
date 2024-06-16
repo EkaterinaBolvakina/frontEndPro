@@ -1,6 +1,45 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background-color: rgba(9, 9, 9, 0.907);
+}
+
+nav>ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    position: fixed;
+    top: 45px;
+    left: 40px;
+    font-size: large;
+    font-weight: 800;
+}
+
+li,
+h1 {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.headerTitle {
+    margin-left: -1600px;
+}
+
+footer {
+    margin-top: 700px;
+    background-color: rgba(9, 9, 9, 0.907);
+    height: 6em;
+    clear: both;
+}
+
 .bookCard {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
 }
 
 .book {
@@ -17,4 +56,20 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.sandwichGeneral {
+    background-image: url('../src/images/sandwich.jpg') ;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+.libraryGeneral {
+    background-image: url('../src/images/books.jpg') ;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
 }
