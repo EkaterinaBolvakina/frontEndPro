@@ -26,25 +26,30 @@ const Library = () => {
 
     return (
         <div className='libraryGeneral'>
-            <h2>Add book</h2>
-            <label> Title: <input
-                type="text" placeholder='Titel...' value={title} onChange={(e) => setTitle(e.target.value)} />
-            </label>
-            <label> Author: <input
-                type="text" placeholder='Author...' value={author} onChange={(e) => setAuthor(e.target.value)} />
-            </label>
-            <label> Year: <input
-                type="text" placeholder='Year...' value={year} onChange={(e) => setYear(e.target.value)} />
-            </label>
-            <button onClick={handleAddBook}>Add book</button>
-
-            <div><h3>Book List</h3></div>
-            <div>
-                {books.map((book) => (
-                    <div className='bookCard' key={book.isbn}>
-                        <Book book={book} />
-                    </div>
-                ))}
+            <div className='libraryDiv'>
+                <div className='libraryComponent'>
+                    <h2>Add book</h2>
+                </div>
+                <div className='libraryComponent'>
+                    <label> Title: <input
+                        type="text" placeholder='Titel...' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    </label>
+                    <label> Author: <input
+                        type="text" placeholder='Author...' value={author} onChange={(e) => setAuthor(e.target.value)} />
+                    </label>
+                    <label> Year: <input
+                        type="text" placeholder='Year...' value={year} onChange={(e) => setYear(e.target.value)} />
+                    </label>
+                    <button onClick={handleAddBook}>Add book</button>
+                </div>
+                <div className='libraryComponent'><h3>Book List</h3></div>
+                <div>
+                    {books.map((book) => (
+                        <div className='bookCard' key={book.isbn}>
+                            <Book book={book} />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

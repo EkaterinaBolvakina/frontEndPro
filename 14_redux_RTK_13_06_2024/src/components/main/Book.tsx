@@ -30,7 +30,7 @@ const Book: FC<BookProps> = ({ book }) => {
     return (
         <div>
             {isEdit ? (
-                <>
+                <> <div className='bookEditMenu'>
                     <div> <input
                         type="text" placeholder='Titel...' value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
@@ -41,6 +41,7 @@ const Book: FC<BookProps> = ({ book }) => {
                         type="text" placeholder='Year...' value={year} onChange={(e) => setYear(Number(e.target.value))} />
                     </div>
                     <button onClick={handleSaveBook}> Save </button>
+                </div>
                 </>
             ) : (
                 <>
