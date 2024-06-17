@@ -1,47 +1,21 @@
-import { FC, useContext } from 'react'
-import { PageContext } from '../../App'
-import { navItems } from '../../utils/constants'
+import { FC } from 'react'
 import Sandwich from './Sandwich'
 import Library from './Library'
 import Counter from './Counter'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 
 const Main: FC = () => {
-  const context = useContext(PageContext);
-  if (!context) return null; // Frühes Rückgabestatement
-
-  const renderContent = () => {
-    switch (context.page) {
-      case navItems[0]:
-        return (
-          <>
-            <section className="left">
-              <Sandwich />
-            </section>
-          </>
-        )
-      case navItems[1]:
-        return <div><Library /></div>;
-      case navItems[2]:
-        return <div><Counter /></div>;
-      default:
-        return (
-          <>
-            <section className="left">
-              <Sandwich />
-            </section>
-          </>
-        )
-    }
-  }
-
   return (
-    <>
-      <main>
-        {renderContent()}
-      </main>
-    </>
-  )
-}
+    <div >
+      <Routes>
+        <Route path="/" element={<Navigate to="/counter" />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/sandwich" element={<Sandwich />} />
+        <Route path="/library" element={<Library />} />
+      </Routes>
+    </div>
+  );
+};
 
 export default Main

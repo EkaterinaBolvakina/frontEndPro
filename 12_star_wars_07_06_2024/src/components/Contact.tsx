@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 const Contact = () => {
@@ -8,6 +9,7 @@ const Contact = () => {
     const [gender, setGender] = useState('');
     const [agreement, setAgreement] = useState(false);
     const [planets, setPlanets] = useState([]);
+    // const [planets, setPlanets] = useState([{}]);
 
     interface IPlanets {
         id: number,
@@ -37,6 +39,20 @@ const Contact = () => {
         fetchPlanets();
     }, []);
 
+    /*
+    useEffect(() => { // Mit der Bibliothek AXIOS:
+        const fetchPlanets = async () => {
+            try {
+                const data = (await axios.get<IPlanets[]>('https://sw-info-api.herokuapp.com/v1/planets')).data;
+                console.log(data);
+                setPlanets(data);
+            } catch (error) {
+                console.error("Error fetching planets: ", error);
+            }
+        };
+        fetchPlanets();
+    }, []);
+    */
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -80,7 +96,7 @@ const Contact = () => {
         <div className='contact-bg'>
             <form onSubmit={handleSubmit}>
                 <div className='contact-div'>
-                    <label> Name: <input  className='contact-input-name'
+                    <label> Name: <input className='contact-input-name'
                         type="text" placeholder='Name...' value={name} onChange={(e) => setName(e.target.value)} />
                     </label>
                 </div>
@@ -91,7 +107,7 @@ const Contact = () => {
                 </div>
                 <div className='contact-div'>
                     <label> Planet:
-                        <select className='contact-input-name'>
+                        <select className='contact-input-name' required>
                             <option value="">Select a planet</option>
                             {planets.map((planet: IPlanets) => (
                                 <option key={planet.id} value={planet.name}>
@@ -102,7 +118,7 @@ const Contact = () => {
                     </label>
                 </div>
                 <div className='contact-div'>
-                    <label> Comment: <input className='contact-input-comment'
+                    <label> Comment: <input className='contact-input-comment' // <textarea cols={30} rows={10}></textarea>
                         type="text" placeholder='Comment...' value={comment} onChange={(e) => setComment(e.target.value)} />
                     </label>
                 </div>

@@ -1,1 +1,1 @@
-export const navItems: string[] = ['Home', 'Library', 'Counter'];
+export const navItems: string[] = ['Sandwich', 'Library', 'Counter'];

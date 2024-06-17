@@ -7,21 +7,23 @@ const Sandwich = () => {
     const dispatch = useDispatch();
 
     const handleAddIngredient = (ingredient: string) => {
-      dispatch(addIngredient(ingredient))
+        dispatch(addIngredient(ingredient))
     }
 
     const handleResetIngredients = () => {
-     dispatch(resetIngredients())
+        dispatch(resetIngredients())
     }
 
     return (
         <div className='sandwichGeneral'>
-            <div><h3>Choose your sandwich:</h3></div>
-            <div>Sandwich: {ingredients.join(' ')}</div>
-            <button onClick={() => { handleAddIngredient('Bread') }}> Add bread </button>
-            <button onClick={() => { handleAddIngredient('Cheese') }}> Add cheese</button>
-            <button onClick={() => { handleAddIngredient('Sausage') }}> Add sausage </button>
-            <button onClick={handleResetIngredients}> Reset all ingredients</button>
+            <div className='sandwichDiv'>
+                <div><h3>Choose your sandwich:</h3></div>
+                <div className='sandwich'>Sandwich: {ingredients.join(' ')}</div>
+                <button onClick={() => { handleAddIngredient('Bread') }}> Add bread </button>
+                <button onClick={() => { handleAddIngredient('Cheese') }}> Add cheese</button>
+                <button onClick={() => { handleAddIngredient('Sausage') }}> Add sausage </button>
+                <button onClick={handleResetIngredients}> Reset all ingredients</button>
+            </div>
         </div>
     )
 }
