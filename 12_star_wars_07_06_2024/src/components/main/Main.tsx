@@ -4,6 +4,7 @@ import DreamTeam from './DreamTeam'
 import FarGalaxy from './FarGalaxy'
 import { PageContext } from '../../App'
 import { navItems } from '../../utils/constants'
+import Contact from '../Contact'
 
 
 //const Main: FC<{ page:string }> = () => {
@@ -31,7 +32,7 @@ const Main: FC = () => {
       case navItems[2]:
         return <div>Star Wars -  Page Content</div>;
       case navItems[3]:
-        return <div>Contact -  Page Content</div>;
+        return <div><Contact /></div>;
       default:
         return (
           <>

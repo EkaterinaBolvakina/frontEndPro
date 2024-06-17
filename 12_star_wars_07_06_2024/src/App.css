@@ -82,3 +82,31 @@ img {
 .commonButton {
     margin: 10px;
 }
+
+.contact-bg {
+    width: 700px;
+    height: 580px;
+    margin: 100px;
+    margin-left: 600px;
+    padding: 50px;
+    background-color: #656659b3;
+    border-radius: 10px;
+}
+
+.contact-div {
+    margin-bottom: 30px;
+}
+
+.contact-input-comment {
+    width: 590px;
+    height: 130px;
+    text-align: start;
+}
+
+.contact-input-name {
+    margin-left: 40px;
+}
+
+.contact-input-surname {
+    margin-left: 10px;
+}

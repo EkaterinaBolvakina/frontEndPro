@@ -1,7 +1,26 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
-const initialState = {
-    value: 0
+interface IUser {
+    id: number;
+    name: string
+}
+
+interface ICounterUserState {
+    user: IUser | null,
+    status: 'idle' | 'loading' | 'success' | 'error'
+    value: number
+}
+
+const fetchUser = createAsyncThunk('fetchUser', async () => {
+    const responce = await fetch('http:/jsonplaceholder.typicode.com/users/1');
+    const data = await responce.json() as IUser;
+    return data
+})
+
+const initialState: ICounterUserState = {
+    value: 0,
+    status: 'idle',
+    user: null
 }
 
 export const counterSlice = createSlice({
@@ -14,6 +33,19 @@ export const counterSlice = createSlice({
         plus(state, action: PayloadAction<number>) {
             state.value = state.value + action.payload;
         }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchUser.pending, (state) => {
+                state.status = 'loading'
+            })
+            .addCase(fetchUser.fulfilled, (state, action) => {
+                state.status = 'success'
+                state.user = action.payload
+            })
+            .addCase(fetchUser.rejected, (state) => {
+                state. status = 'error'
+            })
     }
 })
 
