@@ -111,7 +111,7 @@ const Contact = () => {
                             <option value="">Select a planet</option>
                             {planets.map((planet: IPlanets) => (
                                 <option key={planet.id} value={planet.name}>
-                                    {planet.name}
+                                    {planet.name} 
                                 </option>
                             ))}
                         </select>
