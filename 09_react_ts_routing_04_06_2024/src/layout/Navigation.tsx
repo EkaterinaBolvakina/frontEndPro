@@ -1,20 +1,11 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Navigation = () => {
     return (
         <nav>
-            <ul>
-                <li>
-                    <NavLink to='/'>Tasks</NavLink>
-                </li>
-                <li>
-                    <NavLink to='/users'>Users</NavLink>
-                </li>
-                <li>
-                    <NavLink to='/photos'>Photos</NavLink>
-                </li>
-            </ul>
+            <button><NavLink to='/'>Tasks</NavLink></button>
+            <button><NavLink to='/users'>Users</NavLink></button>
+            <button><NavLink to='/photos'>Photos</NavLink></button>
         </nav>
     )
 }
