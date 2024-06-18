@@ -118,8 +118,8 @@ const Contact = () => {
                     </label>
                 </div>
                 <div className='contact-div'>
-                    <label> Comment: <input className='contact-input-comment' // <textarea cols={30} rows={10}></textarea>
-                        type="text" placeholder='Comment...' value={comment} onChange={(e) => setComment(e.target.value)} />
+                    <label> Comment: 
+                    <textarea className='contact-input-comment' placeholder='Comment...' value={comment} onChange={(e) => setComment(e.target.value)} />
                     </label>
                 </div>
                 <div className='contact-div'>
