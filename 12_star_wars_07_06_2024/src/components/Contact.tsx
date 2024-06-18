@@ -111,15 +111,15 @@ const Contact = () => {
                             <option value="">Select a planet</option>
                             {planets.map((planet: IPlanets) => (
                                 <option key={planet.id} value={planet.name}>
-                                    {planet.name} 
+                                    {planet.name}
                                 </option>
                             ))}
                         </select>
                     </label>
                 </div>
                 <div className='contact-div'>
-                    <label> Comment: 
-                    <textarea className='contact-input-comment' placeholder='Comment...' value={comment} onChange={(e) => setComment(e.target.value)} />
+                    <label> Comment:
+                        <textarea className='contact-input-comment' placeholder='Comment...' value={comment} onChange={(e) => setComment(e.target.value)} />
                     </label>
                 </div>
                 <div className='contact-div'>
